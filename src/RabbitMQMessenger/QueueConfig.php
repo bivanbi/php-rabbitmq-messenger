@@ -28,8 +28,10 @@ class QueueConfig
 
     public function initWithArray(array $configArray): static
     {
-        foreach (get_object_vars($this) as $property => $value) {
-            $this->$property = $configArray[$property] ?? null;
+        foreach ($configArray as $property => $value) {
+            if (property_exists($this, $property)) {
+                $this->$property = $value;
+            }
         }
         return $this;
     }
