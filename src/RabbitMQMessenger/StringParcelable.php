@@ -6,7 +6,7 @@ namespace KignOrg\RabbitMQMessenger;
 
 class StringParcelable implements Parcelable
 {
-    private string $message;
+    private ?string $message;
 
     public function __construct(string $message = null)
     {
@@ -33,7 +33,4 @@ class StringParcelable implements Parcelable
         $this->message = $message;
         return $this;
     }
-
-
-
 }
